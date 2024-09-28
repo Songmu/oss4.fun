@@ -5,7 +5,7 @@ channel:
   language: ja-JP
   category: "Techlogy"
   author: Songmu
-  email: y.songmu+oss4fun@gmail.com
+  email: y.songmu@gmail.com
   artwork: "images/artwork.png"
 timezone: Asia/Tokyo
 audio_bucket_url: https://pub-e4b61b84912948139d3b7b999a29531a.r2.dev/audio/
