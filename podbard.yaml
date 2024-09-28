@@ -4,8 +4,8 @@ channel:
   description: Just a guy who develops OSS for fun
   language: ja-JP
   category: "Techlogy"
-  author: yourname
-  email: youremail@example.com
-  artwork: "images/artwork.jpg" # url or path
+  author: Songmu
+  email: y.songmu+oss4fun@gmail.com
+  artwork: "images/artwork.png"
 timezone: Asia/Tokyo
 audio_bucket_url: https://pub-e4b61b84912948139d3b7b999a29531a.r2.dev/audio/
