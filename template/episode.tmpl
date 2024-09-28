@@ -1,0 +1,38 @@
+{{define "episode" -}}
+
+<h1>{{.Episode.Title}}</h1>
+<figure>
+  <audio controls src="{{.Episode.AudioURL}}"></audio>
+</figure>
+
+{{if .Episode.Chapter -}}
+<aside class="chapters">
+  <h2>Chapters</h2>
+  {{.Episode.Chapter.Body | html}}
+</aside>
+{{end}}
+
+{{.Body}}
+
+<aside class="post-meta">
+  {{with $t := .Episode.PubDate.Format "2006-01-02 15:04" -}}
+  <div>Published: <time datetime="{{ $t }}">{{ $t }}</time></div>
+  {{- end}}
+</aside>
+
+<nav class="adjacent-episodes">
+  <ul>
+    {{ if .PreviousEpisode -}}
+    <li>
+      <a href="{{.PreviousEpisode.URL.Path}}" rel="prev">{{.PreviousEpisode.Title}}</a>
+    </li>
+    {{- end}}
+    {{ if .NextEpisode -}}
+    <li>
+      <a href="{{.NextEpisode.URL.Path}}" rel="next">{{.NextEpisode.Title}}</a>
+    </li>
+    {{- end}}
+  </ul>
+</nav>
+
+{{- end}}

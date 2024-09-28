@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Songmu/podbard/refs/heads/main/schema.yaml
+
+channel:
+  link: https://your-podcast.example.com/
+  title: podbard starter
+  description: podbard starter
+  language: ja-JP
+  category: "Techlogy"
+  author: yourname
+  email: youremail@example.com
+  artwork: "images/artwork.jpg" # url or path
+
+timezone: Asia/Tokyo
+audio_bucket_url: https://r2.dev.example.com/audio/
