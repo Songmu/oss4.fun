@@ -1,14 +1,11 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/Songmu/podbard/refs/heads/main/schema.yaml
-
 channel:
-  link: https://your-podcast.example.com/
-  title: podbard starter
-  description: podbard starter
+  link: https://oss4.fun/
+  title: 趣味でOSSをやっている者だ
+  description: Just a guy who develops OSS for fun
   language: ja-JP
   category: "Techlogy"
   author: yourname
   email: youremail@example.com
   artwork: "images/artwork.jpg" # url or path
-
 timezone: Asia/Tokyo
-audio_bucket_url: https://r2.dev.example.com/audio/
+audio_bucket_url: https://pub-e4b61b84912948139d3b7b999a29531a.r2.dev/audio/
