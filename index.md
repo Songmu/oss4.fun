@@ -7,5 +7,8 @@
 
 ## Episodes
 {{range .Episodes -}}
-- [{{.Title}}]({{.URL.Path}}) ({{.PubDate.Format "2006-01-02 15:04"}})
+<dl>
+  <dt><a href="{{.URL.Path}}">{{.Title}}</a> ({{.PubDate.Format "2006-01-02 15:04"}})</dt>
+  <dd>{{.Subtitle}}</dd>
+</dl>
 {{end}}
