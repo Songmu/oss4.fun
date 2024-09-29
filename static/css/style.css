@@ -190,6 +190,13 @@ body {
         color: #a6e22e;
       }
 
+      dt time {
+        padding: 0.05em 0.15em;
+        background-color: #000;
+        font-weight: normal;
+        color: #5fd7ff;
+      }
+
       dd {
         margin-left: 1.5em;
         margin-bottom: 0.5em;

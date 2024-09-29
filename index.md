@@ -16,7 +16,10 @@
 ## Episodes
 {{range .Episodes -}}
 <dl>
-  <dt><a href="{{.URL.Path}}">{{.Title}}</a> ({{.PubDate.Format "2006-01-02 15:04"}})</dt>
+  <dt>
+    <a href="{{.URL.Path}}">{{.Title}}</a>
+    <time datetime="{{.PubDate.Format "2006-01-02"}}">{{.PubDate.Format "2006-01-02"}}</time>
+  </dt>
   <dd>{{.Subtitle}}</dd>
 </dl>
 {{end}}
