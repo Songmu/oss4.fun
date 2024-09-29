@@ -8,4 +8,4 @@ channel:
   email: y.songmu@gmail.com
   artwork: "images/artwork.png"
 timezone: Asia/Tokyo
-audio_bucket_url: https://pub-e4b61b84912948139d3b7b999a29531a.r2.dev/audio/
+audio_bucket_url: https://files.oss4.fun/audio/
