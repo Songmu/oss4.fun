@@ -31,27 +31,48 @@ body {
   }
 
   header {
+    display: flex;
     background-color: var(--primary-color);
     color: var(--secondary-color);
     padding: var(--padding);
 
-    h1 {
-      margin: 0;
-      font-size: 1.9em;
-      font-weight: bold;
-      a {
-        color: var(--secondary-color);
-
-        &:hover {
-          text-decoration: none;
-        }
+    div.icon {
+      position: relative;
+      width: 8em;
+      height: 8em;
+      max-width: 38.2%;
+      img {
+        width: 100%;
+        object-fit: contain;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 1em;
       }
     }
 
-    p {
-      margin: 0.3em 0 0;
-      font-size: 1em;
-      color: #e0d6d1;
+    hgroup {
+      padding: 0 1em;
+      h1 {
+        margin: 0;
+        font-size: 1.9em;
+        font-weight: bold;
+        a {
+          color: var(--secondary-color);
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
+      p {
+        margin: 0.3em 0 0;
+        font-size: 1em;
+        color: #e0d6d1;
+      }
     }
   }
 
