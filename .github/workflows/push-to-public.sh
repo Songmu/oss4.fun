@@ -85,21 +85,6 @@ mv "$TEMP_DIR/.git" "$CLONE_DIR/.git"
 echo "[+] List contents of $SOURCE_DIRECTORY"
 ls -al "$SOURCE_DIRECTORY"
 
-echo "[+] Checking if local $SOURCE_DIRECTORY exist"
-if [ ! -d "$SOURCE_DIRECTORY" ]
-then
-	echo "ERROR: $SOURCE_DIRECTORY does not exist"
-	echo "This directory needs to exist when push-to-another-repository is executed"
-	echo
-	echo "In the example it is created by ./build.sh: https://github.com/cpina/push-to-another-repository-example/blob/main/.github/workflows/ci.yml#L19"
-	echo
-	echo "If you want to copy a directory that exist in the source repository"
-	echo "to the target repository: you need to clone the source repository"
-	echo "in a previous step in the same build section. For example using"
-	echo "actions/checkout@v2. See: https://github.com/cpina/push-to-another-repository-example/blob/main/.github/workflows/ci.yml#L16"
-	exit 1
-fi
-
 echo "[+] rm source .git directory to avoid conflicts"
 rm -rf "$SOURCE_DIRECTORY/.git"
 
@@ -113,9 +98,6 @@ ls -la
 echo "[+] Set directory is safe ($CLONE_DIR)"
 # Related to https://github.com/cpina/github-action-push-to-another-repository/issues/64
 git config --global --add safe.directory "$CLONE_DIR"
-
-# echo "[+] git config --unset-all"
-# git config --unset-all http.https://github.com/.extraheader
 
 echo "[+] Adding git commit"
 git add .
