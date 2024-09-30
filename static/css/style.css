@@ -206,11 +206,11 @@ body {
     }
 
     aside.post-meta {
-      background-color: #b9dd46;
+      background-color: #242424;
       padding: 0.7em;
       margin-top: 1.25em;
       border-right: 4px solid var(--primary-color);
-      color: #275d17;
+      color: #8c8c8c;
       text-align: right;
     }
 
