@@ -108,7 +108,6 @@ body {
     h6 { font-weight: normal; }
     p { font-size: 1em; margin-bottom: 0.7em; }
 
-
     input {
       border: 1px solid var(--border-color);
       padding: 0.5em;
@@ -117,6 +116,10 @@ body {
       max-width: 40em;
       margin-bottom: 1em;
       background-color: #fff;
+    }
+
+    ul.chapters li time {
+      color: #ab26ff;
     }
 
     figure { margin: 1.5em 0; text-align: center; }
