@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 jobs:
   r2-audio:
+    if: github.repository == 'Songmu/oss4.fun'
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
