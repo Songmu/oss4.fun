@@ -1,0 +1,13 @@
+name: push to public
+on:
+  push:
+    branches: [main]
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    if: github.repository == 'Songmu/oss4.fun-private'
+    steps:
+    - uses: actions/checkout@v4
+    - run: .github/workflows/push-to-public.sh
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.GH_PAT }}
