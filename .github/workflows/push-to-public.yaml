@@ -8,6 +8,14 @@ jobs:
     if: github.repository == 'Songmu/oss4.fun-private'
     steps:
     - uses: actions/checkout@v4
+    - id: generate_token
+      uses: actions/create-github-app-token@v1
+      with:
+        app-id: ${{ secrets.APP_ID }}
+        private-key: ${{ secrets.PRIVATE_KEY }}
+        repositories: |
+          oss4.fun
+          oss4.fun-private
     - run: .github/workflows/push-to-public.sh
       env:
-        API_TOKEN_GITHUB: ${{ secrets.GH_PAT }}
+        API_TOKEN_GITHUB: ${{ steps.generate_token.outputs.token }}
