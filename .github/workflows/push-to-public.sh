@@ -1,4 +1,8 @@
 #!/bin/sh -l
+
+# copied from following and modified
+# https://github.com/cpina/github-action-push-to-another-repository/blob/7c1bd869f38327ce403753fc2a5769e26cacb5ac/entrypoint.sh
+
 set -e  # if a command fails it stops the execution
 
 echo "[+] Action start"
@@ -10,16 +14,18 @@ USER_EMAIL="y.songmu@gmail.com"
 USER_NAME="Masayuki Matsuki"
 DESTINATION_REPOSITORY_USERNAME="Songmu"
 TARGET_BRANCH="main"
-COMMIT_MESSAGE="Update from private repository"
 TARGET_DIRECTORY=""
+COMMIT_MESSAGE="$(git log -1 --pretty=%B)"
 
-if [ -z "$DESTINATION_REPOSITORY_USERNAME" ]
-then
-	DESTINATION_REPOSITORY_USERNAME="$DESTINATION_GITHUB_USERNAME"
+if [ -z "$COMMIT_MESSAGE" ]; then
+  $COMMIT_MESSAGE="Update from private repository"
 fi
 
-if [ -z "$USER_NAME" ]
-then
+if [ -z "$DESTINATION_REPOSITORY_USERNAME" ]; then
+  DESTINATION_REPOSITORY_USERNAME="$DESTINATION_GITHUB_USERNAME"
+fi
+
+if [ -z "$USER_NAME" ]; then
 	USER_NAME="$DESTINATION_GITHUB_USERNAME"
 fi
 
@@ -73,9 +79,6 @@ mkdir -p "$ABSOLUTE_TARGET_DIRECTORY"
 
 echo "[+] Listing Current Directory Location"
 ls -al
-
-echo "[+] Listing root Location"
-ls -al /
 
 mv "$TEMP_DIR/.git" "$CLONE_DIR/.git"
 
