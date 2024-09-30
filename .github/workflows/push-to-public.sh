@@ -98,7 +98,7 @@ then
 fi
 
 echo "[+] rm source .git directory to avoid conflicts"
-rm -rf ".git"
+rm -rf "$SOURCE_DIRECTORY/.git"
 
 echo "[+] Copying contents of source repository folder $SOURCE_DIRECTORY to folder $TARGET_DIRECTORY in git repo $DESTINATION_REPOSITORY_NAME"
 cp -ra "$SOURCE_DIRECTORY"/. "$CLONE_DIR/$TARGET_DIRECTORY"

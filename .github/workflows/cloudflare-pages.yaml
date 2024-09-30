@@ -3,6 +3,13 @@ on:
   push:
     branches:
     - main
+    paths:
+    - 'audio/**'
+    - 'episode/**'
+    - 'static/**'
+    - 'template/**'
+    - index.md
+    - podbard.yaml
   workflow_dispatch:
 jobs:
   cloudflare-pages:

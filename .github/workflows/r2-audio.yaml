@@ -3,6 +3,8 @@ on:
   push:
     branches:
     - main
+    paths:
+    - 'audio/**'
   workflow_dispatch:
 jobs:
   r2-audio:
