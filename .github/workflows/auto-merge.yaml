@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'Songmu/oss4.fun-private'
     steps:
+    - uses: actions/checkout@v4
     - id: generate_token
       uses: actions/create-github-app-token@v1
       with:
