@@ -21,7 +21,8 @@ jobs:
         for pr in $(jq -r '.[] | select(.labels[].name=="auto-merge") | .number' prs.json); do
           pr_title=$(jq -r '.[] | select(.number=='"$pr"') | .title' prs.json)
           echo "Merging PR #$pr - $pr_title"
-          gh pr merge $pr --squash --repo ${{ github.repository }} --subject "Auto-merged PR #$pr: $pr_title"
+          gh pr merge $pr --squash --repo ${{ github.repository }} --subject \
+            "Auto-merged PR Songmu/oss4.fun-private#$pr: $pr_title"
         done
       env:
         GH_TOKEN: ${{ steps.generate_token.outputs.token }}
