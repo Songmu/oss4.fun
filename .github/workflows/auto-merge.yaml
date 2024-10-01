@@ -1,0 +1,26 @@
+name: Auto Merge PR with Specific Label
+on:
+  # schedule:
+  #   - cron: '0 0 * * *'
+  workflow_dispatch:
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    if: github.repository == 'Songmu/oss4.fun-private'
+    steps:
+    - id: generate_token
+      uses: actions/create-github-app-token@v1
+      with:
+        app-id: ${{ secrets.APP_ID }}
+        private-key: ${{ secrets.PRIVATE_KEY }}
+    - name: List pull requests
+      id: list_prs
+      run: |
+        gh pr list --state open --json number,labels,title > prs.json
+        for pr in $(jq -r '.[] | select(.labels[].name=="auto-merge") | .number' prs.json); do
+          pr_title=$(jq -r '.[] | select(.number=='"$pr"') | .title' prs.json)
+          echo "Merging PR #$pr - $pr_title"
+          gh pr merge $pr --squash --repo ${{ github.repository }} --subject "Auto-merged PR #$pr: $pr_title"
+        done
+      env:
+        GH_TOKEN: ${{ steps.generate_token.outputs.token }}
