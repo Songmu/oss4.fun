@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: Songmu/r2sync@0a3738b86f115336851789f27baf4f2466d670cc
+    - uses: Songmu/r2sync@4eedc394a88b052ed35cb25338f6a47ef9d06baa
       with:
         r2_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         r2_access_key_id: ${{ secrets.R2_ACCESS_KEY_ID }}
