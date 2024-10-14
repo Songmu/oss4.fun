@@ -15,11 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: ryand56/r2-upload-action@v1
+    - uses: Songmu/r2sync@v0
       with:
-        r2-account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        r2-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
-        r2-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-        r2-bucket: oss4fun
-        source-dir: audio
-        destination-dir: audio
+        r2_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        r2_access_key_id: ${{ secrets.R2_ACCESS_KEY_ID }}
+        r2_secret_access_key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        src: ./audio
+        dest: r2://oss4.fun/audio
+        public_domain: files.oss4.fun
