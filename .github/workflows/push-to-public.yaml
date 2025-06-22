@@ -21,9 +21,8 @@ jobs:
     - uses: Songmu/action-push-to-another-repository@main
       with:
         github-token: "${{ steps.generate_token.outputs.token }}"
-        destination-repository-name: oss4.fun
+        destination-repository: oss4.fun
         source-directory: .
         commit-message: "${{ steps.commit_message.outputs.commit_message }}"
-        destination-github-username: Songmu
         user-name: Masayuki Matsuki
         user-email: y.songmu@gmail.com
