@@ -24,5 +24,3 @@ jobs:
         destination-repository: oss4.fun
         source-directory: .
         commit-message: "${{ steps.commit_message.outputs.commit_message }}"
-        user-name: Masayuki Matsuki
-        user-email: y.songmu@gmail.com
