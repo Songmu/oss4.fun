@@ -21,6 +21,6 @@ jobs:
     - uses: Songmu/action-push-to-another-repository@signed-commit
       with:
         github-token: "${{ steps.generate_token.outputs.token }}"
-        destination-repository: oss4.fun
+        destination-repository: Songmu/oss4.fun
         source-directory: .
         commit-message: "${{ steps.commit_message.outputs.commit_message }}"
