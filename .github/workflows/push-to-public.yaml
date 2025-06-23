@@ -8,19 +8,14 @@ jobs:
     if: github.repository == 'Songmu/oss4.fun-private'
     steps:
     - uses: actions/checkout@v4
-    - id: commit_message
-      run: |
-        COMMIT_MESSAGE="$(git log -1 --pretty=%B)"
-        echo "commit_message=$COMMIT_MESSAGE" >> "$GITHUB_OUTPUT"
     - id: generate_token
       uses: actions/create-github-app-token@v1
       with:
         app-id: ${{ secrets.APP_ID }}
         private-key: ${{ secrets.PRIVATE_KEY }}
         repositories: oss4.fun
-    - uses: Songmu/action-push-to-another-repository@main
+    - uses: Songmu/action-push-to-another-repository@commit-message
       with:
         github-token: "${{ steps.generate_token.outputs.token }}"
         destination-repository: Songmu/oss4.fun
         source-directory: .
-        commit-message: "${{ steps.commit_message.outputs.commit_message }}"
