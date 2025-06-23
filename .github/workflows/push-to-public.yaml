@@ -14,7 +14,7 @@ jobs:
         app-id: ${{ secrets.APP_ID }}
         private-key: ${{ secrets.PRIVATE_KEY }}
         repositories: oss4.fun
-    - uses: Songmu/action-push-to-another-repository@main
+    - uses: Songmu/action-push-to-another-repository@v2
       with:
         github-token: "${{ steps.generate_token.outputs.token }}"
         destination-repository: Songmu/oss4.fun
