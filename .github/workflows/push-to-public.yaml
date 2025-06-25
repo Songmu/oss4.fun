@@ -16,5 +16,5 @@ jobs:
         repositories: oss4.fun
     - uses: Songmu/action-push-to-another-repository@v2
       with:
-        github-token: "${{ steps.generate_token.outputs.token }}"
+        token: "${{ steps.generate_token.outputs.token }}"
         destination-repository: Songmu/oss4.fun
