@@ -11,6 +11,8 @@ on:
     - index.md
     - podbard.yaml
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   cloudflare-pages:
     if: github.repository == 'Songmu/oss4.fun'
@@ -19,8 +21,10 @@ jobs:
       cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: Songmu/r2sync@v0
+    - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      with:
+        persist-credentials: false
+    - uses: Songmu/r2sync@fa073e7c033f7af2929177c7d6894b56c19a1131 # v0.0.4
       with:
         r2_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         r2_access_key_id: ${{ secrets.R2_ACCESS_KEY_ID }}
@@ -29,8 +33,8 @@ jobs:
         dest: r2://oss4fun/audio
         public_domain: files.oss4.fun
     - name: Install podbard and build site
-      uses: Songmu/podbard@v0
-    - uses: cloudflare/pages-action@v1
+      uses: Songmu/podbard@6e8af55119506003502f87eaecc982811e9f6364 # v0.0.17
+    - uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1.5.0
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

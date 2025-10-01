@@ -3,14 +3,19 @@ on:
   schedule:
     - cron: '00 2 * * 4' # 11:00 JST every Thursday
   workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
     if: github.repository == 'Songmu/oss4.fun-private'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      with:
+        persist-credentials: false
     - id: generate_token
-      uses: actions/create-github-app-token@v1
+      uses: actions/create-github-app-token@67018539274d69449ef7c02e8e71183d1719ab42 # v2.1.4
       with:
         app-id: ${{ secrets.APP_ID }}
         private-key: ${{ secrets.PRIVATE_KEY }}
@@ -21,8 +26,9 @@ jobs:
         for pr in $(jq -r '.[] | select(.labels[].name=="auto-merge") | .number' prs.json); do
           pr_title=$(jq -r '.[] | select(.number=='"$pr"') | .title' prs.json)
           echo "Merging PR #$pr - $pr_title"
-          gh pr merge $pr --squash --repo ${{ github.repository }} --subject \
+          gh pr merge $pr --squash --repo ${REPO} --subject \
             "Auto-merged PR Songmu/oss4.fun-private#$pr: $pr_title"
         done
       env:
+        REPO: ${{ github.repository }}
         GH_TOKEN: ${{ steps.generate_token.outputs.token }}
