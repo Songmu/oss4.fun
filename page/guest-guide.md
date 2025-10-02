@@ -4,8 +4,6 @@
 ## 番組概要
 趣味でOSSをやっている者だ / Someone who develops OSS for fun / #oss4fun
 
-<https://oss4.fun>
-
 OSS作家のSongmuがゲストを交えながら趣味や仕事について話すポッドキャスト
 
 ## 基本的なスタンス
