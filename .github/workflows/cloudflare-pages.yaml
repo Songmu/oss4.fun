@@ -33,7 +33,7 @@ jobs:
         dest: r2://oss4fun/audio
         public_domain: files.oss4.fun
     - name: Install podbard and build site
-      uses: Songmu/podbard@6e8af55119506003502f87eaecc982811e9f6364 # v0.0.17
+      uses: Songmu/podbard@e78611076199804e7408e209d15af8a82a49be99 # v0.0.18
     - uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1.5.0
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
