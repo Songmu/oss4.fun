@@ -14,6 +14,8 @@
 - [![Pocket Casts](/images/icon/pocket-casts.svg)](https://pca.st/x8mjk9j6)
 - [![Android](/images/icon/android.png)](https://subscribeonandroid.com/oss4.fun/feed.xml)
 
+<div id="codoc-entry-A5u2OXkBcg" class="codoc-entries" data-without-body="1" data-support-button-text="チップを送る" data-support-message="番組を応援する"></div>
+
 ## Episodes
 {{range .Episodes -}}
 <dl>
