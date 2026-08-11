@@ -240,7 +240,7 @@ body {
       tr:nth-child(even) td { background-color: var(--background-color); }
     }
 
-    dl {
+    > dl {
       margin-bottom: 1.5em;
 
       dt {
