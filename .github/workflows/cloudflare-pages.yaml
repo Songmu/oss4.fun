@@ -13,6 +13,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  deployments: write
 jobs:
   cloudflare-pages:
     if: github.repository == 'Songmu/oss4.fun'
@@ -34,9 +35,10 @@ jobs:
         public_domain: files.oss4.fun
     - name: Install podbard and build site
       uses: Songmu/podbard@e78611076199804e7408e209d15af8a82a49be99 # v0.0.18
-    - uses: cloudflare/pages-action@f0a1cd58cd66095dee69bfa18fa5efd1dde93bca # v1.5.0
+    - name: Deploy to Cloudflare Pages
+      uses: cloudflare/wrangler-action@25853364521e0d392ece9b0c1e97a4b37b638087 # v4
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        projectName: oss4fun
-        directory: public
+        command: pages deploy public --project-name=oss4fun
+        gitHubToken: ${{ secrets.GITHUB_TOKEN }}
