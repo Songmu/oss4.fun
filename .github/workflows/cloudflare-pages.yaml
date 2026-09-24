@@ -10,6 +10,7 @@ on:
     - 'template/**'
     - index.md
     - podbard.yaml
+    - .github/workflows/cloudflare-pages.yaml
   workflow_dispatch:
 permissions:
   contents: read
