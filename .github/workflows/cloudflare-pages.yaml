@@ -37,7 +37,7 @@ jobs:
     - name: Install podbard and build site
       uses: Songmu/podbard@e78611076199804e7408e209d15af8a82a49be99 # v0.0.18
     - name: Deploy to Cloudflare Pages
-      uses: cloudflare/wrangler-action@25853364521e0d392ece9b0c1e97a4b37b638087 # v4
+      uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
