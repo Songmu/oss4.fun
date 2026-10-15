@@ -26,16 +26,8 @@ jobs:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
         persist-credentials: false
-    - uses: Songmu/r2sync@fa073e7c033f7af2929177c7d6894b56c19a1131 # v0.0.4
-      with:
-        r2_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        r2_access_key_id: ${{ secrets.R2_ACCESS_KEY_ID }}
-        r2_secret_access_key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-        src: ./audio
-        dest: r2://oss4fun/audio
-        public_domain: files.oss4.fun
     - name: Install podbard and build site
-      uses: Songmu/podbard@e78611076199804e7408e209d15af8a82a49be99 # v0.0.18
+      uses: Songmu/podbard@9cfe3379f66179bf3453bab4b776e970409bddc2 # v0.0.19
     - name: Deploy to Cloudflare Pages
       uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4
       with:
