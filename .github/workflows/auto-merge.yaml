@@ -1,7 +1,8 @@
 name: Auto Merge PR with Specific Label
 on:
   schedule:
-    - cron: '00 0 * * 3' # 8:00 JST every Thursday
+    - cron: '00 8 * * 1,4'
+      timezone: Asia/Tokyo
   workflow_dispatch:
 permissions:
   contents: write
